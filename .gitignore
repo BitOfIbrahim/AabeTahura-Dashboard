@@ -1,0 +1,10 @@
+# Ignore node modules
+node_modules/
+
+# Ignore sensitive credentials
+credentials.json
+
+# Optionally ignore environment files (if you use them)
+.env
+# stray duplicate project copy (contains secrets) - keep out of repo
+src/public/Css/AabeTahura_New/

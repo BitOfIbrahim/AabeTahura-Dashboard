@@ -1,0 +1,680 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f9ff;
+  color: #343a40;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #007bff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #003366;
+  color: white;
+  z-index: 2;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.table thead th:hover {
+  background-color: #0056b3;
+}
+
+.table tbody tr:hover {
+  background-color: #e3f2fd;
+  transition: background-color 0.3s ease;
+}
+
+.table-responsive {
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-responsive::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.dues-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-message {
+  background-color: #e63946; /* Red color for unpaid dues */
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 12px;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 6px 15px rgba(230, 57, 70, 0.4);
+}
+
+.status-message.paid {
+  background-color: #28a745; /* Green color for paid dues */
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4);
+}
+
+.btn-pay {
+  background-color: #e63946;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 12px;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(230, 57, 70, 0.4);
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  border: none;
+}
+
+.btn-pay:hover {
+  background-color: #d62839;
+  box-shadow: 0 8px 20px rgba(230, 57, 70, 0.6);
+  transform: translateY(-3px) scale(1.03);
+  text-decoration: none;
+}
+
+.buy-bottle-btn {
+  background-color: #28a745;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 6px 15px rgba(106, 76, 147, 0.4);
+  border: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.buy-bottle-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(106, 76, 147, 0.6);
+  text-decoration: none;
+}
+
+.buy-bottle-btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(106, 76, 147, 0.8);
+  text-decoration: none;
+}
+
+button.btn-danger {
+  background-color: #ff4b5c;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.2s ease, background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.btn-danger:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+label {
+  color: #343a40;
+  font-weight: bold;
+}
+
+select.form-select {
+  background-color: #ffffff;
+  border: 2px solid #0056b3;
+  border-radius: 5px;
+  padding: 5px;
+  color: #0056b3;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+select.form-select:hover,
+select.form-select:focus {
+  background-color: #e6f3ff;
+  border-color: #003f7f;
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
+  color: #003f7f;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-footer .btn-primary {
+  background-color: #28a745;
+  border: none;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #218838;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.left-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.right-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .btn-pay, 
+  .buy-bottle-btn {
+    width: 90%;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  button.btn-danger {
+    width: 90%;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .right-buttons {
+    display: none;
+  }
+
+  .dropdown {
+    display: block;
+    width: 100%;
+  }
+
+  .dropdown-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .table-responsive {
+    max-height: 300px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+
+  .modal-body input {
+    width: 100%;
+  }
+}
+.status-message {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.status-message.unpaid {
+  background-color: #f8d7da; /* Light red */
+  color: #721c24; /* Dark red text */
+  border: 1px solid #f5c6cb; /* Light red border */
+}
+
+.status-message.paid {
+  background-color: #d4edda; /* Light green */
+  color: #155724; /* Dark green text */
+  border: 1px solid #c3e6cb; /* Light green border */
+}
+
+.status-message {
+  font-size: 1rem;
+  font-weight: 600; /* Slightly bolder font for emphasis */
+  padding: 12px 20px;
+  border-radius: 8px; /* Smooth rounded corners */
+  text-align: center;
+  margin-bottom: 15px;
+  display: inline-block; /* Keeps it aligned properly */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.status-message.unpaid {
+  background-color: #ffe6e9; /* Softer light red */
+  color: #d9534f; /* Professional red tone */
+  border: 1px solid #f5c2c7; /* Subtle border */
+}
+
+.status-message.unpaid a {
+  color: #d9534f; /* Match the text color for unpaid dues */
+  text-decoration: none; /* No underline */
+  font-weight: 600; /* Bold the link */
+}
+
+.status-message.unpaid a:hover {
+  text-decoration: underline; /* Subtle underline on hover */
+}
+
+.status-message.paid {
+  background-color: #eafaf1; /* Softer light green */
+  color: #28a745; /* Professional green tone */
+  border: 1px solid #c3e6cb; /* Subtle border */
+}
+
+.buy-bottle-btn {
+  background-color: #007bff; /* Professional blue for buttons */
+  color: #fff; /* White text */
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+}
+
+.buy-bottle-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+
+/* Buttons Layout */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Space between left and right sections */
+  align-items: center;
+  padding: 20px; /* Add padding around buttons */
+  margin-bottom: 20px; /* Space below buttons */
+}
+
+.left-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between buttons */
+}
+
+.right-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buy-bottle-btn {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.buy-bottle-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #ff4b5c;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  color: #007bff;
+  margin-top: 20px;
+}
+/* Logo Container */
+/* Full-width logo container */
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FEFEFE; /* Optional: No background color */
+  margin-bottom: 20px; /* Space below the logo */
+}
+
+/* Full-width logo styling */
+.logo {
+  width: 100%; /* Span the full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 300px; /* Optional: Limit maximum height */
+  object-fit: contain; /* Ensure the entire image is visible without cropping */
+  border-radius: 15px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a clean shadow effect */
+} 
+
+.welcome-banner {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  padding: 20px 30px;
+  border-radius: 12px;
+  margin: 20px auto;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  max-width: 600px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.welcome-banner h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.welcome-banner h2 span {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+
+@media (max-width: 768px) {
+ 
+/* Horizontal scroll cue (shadow/fade on right edge) */
+.table-responsive::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to left, rgba(244, 249, 255, 1), rgba(244, 249, 255, 0));
+  z-index: 5;
+}
+
+.table-responsive {
+  position: relative; /* Needed for the scroll cue */
+}
+
+/* Fix: Remove the scroll shadow/fade that hides content */
+.table-responsive {
+  -webkit-mask-image: none;
+  mask-image: none;
+  background-clip: padding-box;
+  background: white !important; /* Ensure no overlay */
+  scrollbar-width: thin; /* Firefox: thin scrollbar */
+  scrollbar-color: #007bff #f1f1f1; /* Thumb and track */
+}
+
+/* Optional: Custom scrollbar for WebKit (Chrome/Safari) */
+.table-responsive::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #007bff;
+  border-radius: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Remove potential blur or transition on the right */
+.table-responsive::after {
+  content: none !important;
+}
+
+.dues-container,
+.logout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.status-message.paid {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.logout-container .btn-danger {
+  width: 100%;
+  max-width: 320px;
+  font-size: 1.1rem;
+  padding: 12px 0;
+  background-color: #ff4b5c;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 75, 92, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-container .btn-danger:hover {
+  background-color: #d63648;
+  transform: scale(1.03);
+}
+
+.dues-container,
+.logout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.status-message.paid {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.logout-container .btn-danger {
+  width: 100%;
+  max-width: 320px;
+  font-size: 1.1rem;
+  padding: 12px 0;
+  background-color: #ff4b5c;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 75, 92, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-container .btn-danger:hover {
+  background-color: #d63648;
+  transform: scale(1.03);
+}
+
+
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: hidden; /* Disable scroll */
+    max-height: none;
+  }
+
+  .table-responsive table {
+    width: 100%;
+    table-layout: auto;
+  }
+
+  .table th,
+  .table td {
+    white-space: normal !important;  /* Allow text wrapping */
+    word-wrap: break-word;
+    font-size: 0.45rem;               /* Smaller font */
+    padding: 4px 6px;                /* Tighter padding */
+    text-align: left;
+  }
+
+  .dashboard-title {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .buy-bottle-btn,
+  .btn-danger {
+    font-size: 0.85rem;
+    width: 100%;
+    padding: 8px 12px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .left-buttons,
+  .right-buttons {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .right-buttons {
+    display: none;
+  }
+
+  .logout-top-mobile {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+  }
+
+  .logout-top-mobile .btn {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 25px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .dues-floating-mobile {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 80%;
+  }
+
+  .dues-floating-mobile .status-message {
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  body {
+    padding-bottom: 140px;
+  }
+
+  #monthFilter {
+    width: auto;
+    min-width: 90px;
+    margin-top: 8px;
+  }
+
+  .dropdown,
+  .dropdown-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .logo {
+    max-height: 180px;
+  }
+}
